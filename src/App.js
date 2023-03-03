@@ -20,9 +20,12 @@ function App() {
       <Button text='bad' onClick={handleBadClick} />
 
       <Heading text='statistics' />
-      <Stat text='good' count={good} />
-      <Stat text='neutral' count={neutral} />
-      <Stat text='bad' count={bad} />
+      <Stat text='good' value={good} />
+      <Stat text='neutral' value={neutral} />
+      <Stat text='bad' value={bad} />
+      <Stat text='all' value={good + neutral + bad} />
+      <Stat text='average' value={((good * 1) + (neutral * 0) + (bad * -1)) / (good + bad + neutral)} />
+      <Stat text='positive' value={good / (good + bad + neutral)} />
     </>
   );
 }
@@ -46,7 +49,7 @@ const Button = (props) => {
 const Stat = (props) => {
   return (
     <>
-      <p>{props.text} {props.count}</p>
+      <p>{props.text} {props.value}</p>
     </>
   )
 }
